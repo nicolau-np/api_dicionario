@@ -17,6 +17,7 @@ class TipoTextoResource extends JsonResource
         return [
             'id'=>$this->id,
             'tipo'=>$this->tipo,
+            'img'=>$this->img,
             'estado'=>$this->estado,
         ];
     }
