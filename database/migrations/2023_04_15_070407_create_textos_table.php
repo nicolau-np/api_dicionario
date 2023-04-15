@@ -14,8 +14,17 @@ class CreateTextosTable extends Migration
     public function up()
     {
         Schema::create('textos', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->bigInteger('id_tipo_texto')->unsigned()->index();
+            $table->text('texto');
+            $table->text('video')->nullable();
+            $table->text('img')->nullable();
+            $table->string('estado');
             $table->timestamps();
+        });
+
+        Schema::table('textos', function (Blueprint $table) {
+          $table->foreign('id_tipo_texto')->references('id')->on('textos')->onDelete('cascade');
         });
     }
 
