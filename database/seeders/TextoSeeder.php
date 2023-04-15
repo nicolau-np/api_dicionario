@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Texto;
 use Illuminate\Database\Seeder;
+use App\Models\Texto;
 
-class TexoSeeder extends Seeder
+class TextoSeeder extends Seeder
 {
     static $textos = [
         [
