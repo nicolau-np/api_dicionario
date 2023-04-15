@@ -17,5 +17,7 @@ class Texto extends Model
         'estado',
     ];
 
-    public function 
+    public function tipo_textos(){
+        return $this->belongsTo(TipoTexto::class, 'id_tipo_texto', 'id');
+    }
 }
