@@ -10,18 +10,23 @@ class TipoTextoSeeder extends Seeder
     static $tipo_textos =[
         [
             'tipo'=>"Alfabeto",
+            'img'=>null,
             'estado'=>"on",
         ], [
             'tipo'=>"Questões",
+            'img'=>null,
             'estado'=>"on",
         ],[
             'tipo'=>"Comidas",
+            'img'=>null,
             'estado'=>"on",
         ],[
             'tipo'=>"Saudações",
+            'img'=>null,
             'estado'=>"on",
         ],[
             'tipo'=>"Números",
+            'img'=>null,
             'estado'=>"on",
         ],
     ];

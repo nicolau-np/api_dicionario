@@ -11,6 +11,7 @@ class TipoTexto extends Model
 
     protected $fillable = [
        'tipo',
+       'img',
        'estado',
     ];
 

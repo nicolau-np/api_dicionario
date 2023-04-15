@@ -4,6 +4,8 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Texto;
+use App\Http\Resources\TextoResource;
 
 class TextoController extends Controller
 {
@@ -14,7 +16,9 @@ class TextoController extends Controller
      */
     public function index()
     {
-        //
+        $textos = Texto::orderBy('texto', 'asc')->get();
+
+        return TextoResource::collect($textos);
     }
 
     /**

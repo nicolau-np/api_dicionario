@@ -4,6 +4,8 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\TipoTexto;
+use App\Http\Resources\TipoTextoResource;
 
 class TipoTextoController extends Controller
 {
@@ -14,7 +16,9 @@ class TipoTextoController extends Controller
      */
     public function index()
     {
-        //
+        $tipo_textos = TipoTexto::orderBy('tipo', 'asc')->get();
+
+        return TipoTextoResource::collect($tipo_textos);
     }
 
     /**

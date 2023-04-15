@@ -17,6 +17,7 @@ class CreateTipoTextosTable extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('tipo')->unique();
+            $table->text('img')->nullable();
             $table->string('estado')->default('on');
             $table->timestamps();
         });
