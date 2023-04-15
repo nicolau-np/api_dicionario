@@ -18,7 +18,7 @@ class TextoController extends Controller
     {
         $textos = Texto::orderBy('texto', 'asc')->get();
 
-        return TextoResource::collect($textos);
+        return TextoResource::collection($textos);
     }
 
     /**

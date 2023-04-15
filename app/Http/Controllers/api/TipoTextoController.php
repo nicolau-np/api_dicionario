@@ -18,7 +18,7 @@ class TipoTextoController extends Controller
     {
         $tipo_textos = TipoTexto::orderBy('tipo', 'asc')->get();
 
-        return TipoTextoResource::collect($tipo_textos);
+        return TipoTextoResource::collection($tipo_textos);
     }
 
     /**
