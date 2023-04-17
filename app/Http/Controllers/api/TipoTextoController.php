@@ -40,7 +40,9 @@ class TipoTextoController extends Controller
      */
     public function show($id)
     {
-        //
+        $tipo_texto = TipoTexto::find($id);
+
+        return new TipoTextoResource($tipo_texto);
     }
 
     /**

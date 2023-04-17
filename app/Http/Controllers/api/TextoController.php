@@ -40,7 +40,9 @@ class TextoController extends Controller
      */
     public function show($id)
     {
-        //
+        $texto = Texto::find($id);
+
+        return new TextoResource($texto);
     }
 
     /**
@@ -74,7 +76,7 @@ class TextoController extends Controller
 
     public function keyup(Request $request){
         $texto = Texto::where('texto', 'LIKE', "%{$request->texto}%")->get();
-        
+
         return new TextoResource($texto);
     }
 }
