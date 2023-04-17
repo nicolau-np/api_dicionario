@@ -65,4 +65,16 @@ class TextoController extends Controller
     {
         //
     }
+
+    public function search($texto){
+        $texto = Texto::where('texto', $texto)->get();
+
+        return new TextoResource($texto);
+    }
+
+    public function keyup(Request $request){
+        $texto = Texto::where('texto', 'LIKE', "%{$request->texto}%")->get();
+        
+        return new TextoResource($texto);
+    }
 }

@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('textos')->group(function(){
+    Route::get('search/{texto}', [TextoController::class, 'search']);
     Route::get('/', [TextoController::class, 'index']);
 });
 
