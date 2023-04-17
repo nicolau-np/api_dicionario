@@ -79,4 +79,10 @@ class TextoController extends Controller
 
         return new TextoResource($texto);
     }
+
+    public function category($id_tipo_texto){
+        $texto = Texto::where('id_tipo_texto', $id_tipo_texto)->get();
+
+        return new TextoResource($texto);
+    }
 }
