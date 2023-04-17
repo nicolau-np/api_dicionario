@@ -10,23 +10,23 @@ class TipoTextoSeeder extends Seeder
     static $tipo_textos =[
         [
             'tipo'=>"Alfabeto",
-            'img'=>null,
+            'img'=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh8VZUWtubvm1QZ2hYoeQQqYyMoWQguI9mlA&usqp=CAU",
             'estado'=>"on",
         ], [
             'tipo'=>"Questões",
-            'img'=>null,
+            'img'=>"https://www.freeiconspng.com/thumbs/question-mark-icon/3d-question-mark-icon-blue-color-picture-6.png",
             'estado'=>"on",
         ],[
             'tipo'=>"Comidas",
-            'img'=>null,
+            'img'=>"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxmEnetPrdPcsaCYmooRb2kATdocOR_o7uTQ&usqp=CAU",
             'estado'=>"on",
         ],[
             'tipo'=>"Saudações",
-            'img'=>null,
+            'img'=>"https://cdn-icons-png.flaticon.com/512/774/774502.png",
             'estado'=>"on",
         ],[
             'tipo'=>"Números",
-            'img'=>null,
+            'img'=>"https://img.freepik.com/free-vector/counting-number-0-9-math-symbols_1308-102627.jpg?w=2000",
             'estado'=>"on",
         ],
     ];
