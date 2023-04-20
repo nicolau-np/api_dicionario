@@ -24,7 +24,7 @@ class CreateTextosTable extends Migration
         });
 
         Schema::table('textos', function (Blueprint $table) {
-          $table->foreign('id_tipo_texto')->references('id')->on('textos')->onUpdate('cascade');
+          $table->foreign('id_tipo_texto')->references('id')->on('tipo_textos')->onUpdate('cascade');
         });
     }
 

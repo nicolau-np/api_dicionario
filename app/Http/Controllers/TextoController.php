@@ -16,6 +16,8 @@ class TextoController extends Controller
 
     public function show($id){
         $texto = Texto::find($id);
+        if(!$texto)
+            return back()->with('error', "Nao encontrou");
 
         return view('textos.show', compact('texto'));
     }
@@ -27,33 +29,68 @@ class TextoController extends Controller
     }
 
     public function store(Request $request){
-$this->validate($request, [
-    'id_tipo_texto'=>'required|integer|exists:tipo_textos,id',
-    'texto'=>'required|string',
-    'video'=>'required|string',
-],[],[
-    'id_tipo_texto'=>'Tipo Texto',
-    'texto'=>'Texto',
-    'video'=>'Video',
-]);
+            $this->validate($request, [
+                'id_tipo_texto'=>'required|integer|exists:tipo_textos,id',
+                'texto'=>'required|string',
+                'video'=>'required|string',
+            ],[],[
+                'id_tipo_texto'=>'Tipo Texto',
+                'texto'=>'Texto',
+                'video'=>'Video',
+            ]);
 
-try{
-    Texto::create($request->all());
-    return back()->with('success', "Feito com sucesso");
-}catch(\Exception $ex){
-return back()->with('error', $ex->getMessage());
-}
+            try{
+                Texto::create($request->all());
+                return back()->with('success', "Feito com sucesso");
+            }catch(\Exception $ex){
+            return back()->with('error', $ex->getMessage());
+            }
     }
 
     public function edit($id){
+        $texto = Texto::find($id);
+        if(!$texto)
+            return back()->with('error', "Nao encontrou");
 
+        $tipo_textos = TipoTexto::orderBy('tipo', 'asc');
+
+        return view('textos.edit', compact('texto', 'tipo_textos'));
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
+        $texto = Texto::find($id);
+        if(!$texto)
+            return back()->with('error', "Nao encontrou");
 
+            $this->validate($request, [
+                'id_tipo_texto'=>'required|integer|exists:tipo_textos,id',
+                'texto'=>'required|string',
+                'video'=>'required|string',
+            ],[],[
+                'id_tipo_texto'=>'Tipo Texto',
+                'texto'=>'Texto',
+                'video'=>'Video',
+            ]);
+
+            try{
+                Texto::find($id)->update($request->all());
+                return back()->with('success', "Feito com sucesso");
+            }catch(\Exception $ex){
+            return back()->with('error', $ex->getMessage());
+            }
     }
 
     public function destroy($id){
+        $texto = Texto::find($id);
+        if(!$texto)
+            return back()->with('error', "Nao encontrou");
+
+        try{
+            $texto->delete();
+            return back()->with('success', "Feito com sucesso");
+        }catch(\Exception $ex){
+            return back()->with('error', $ex->getMessage());
+        }
 
     }
 }
