@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-{{ Form::open(['url'=>"/tipo_textos/{$tipo_texto->id}", 'method'=>"put"]) }}
+{{ Form::open(['url'=>"/tipo-textos/{$tipo_texto->id}", 'method'=>"put"]) }}
 
 <div class="row">
     @include('include.message')
@@ -12,7 +12,7 @@
 @endif
 </div>
 
-<div class="col-md-8 mt-2">
+<div class="col-md-8">
     {{ Form::text('img',  $tipo_texto->img, ['class'=>"form-control", 'placeholder'=>"Link Imagem"])}}
     @if ($errors->has('img'))
          <span class="text-danger">{{ $errors->first('img')}}</span>

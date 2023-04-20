@@ -12,7 +12,7 @@
 @endif
 </div>
 
-<div class="col-md-8 mt-2">
+<div class="col-md-8">
     {{ Form::text('img',  null, ['class'=>"form-control", 'placeholder'=>"Link Imagem"])}}
     @if ($errors->has('img'))
          <span class="text-danger">{{ $errors->first('img')}}</span>

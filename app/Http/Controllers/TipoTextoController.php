@@ -18,13 +18,12 @@ class TipoTextoController extends Controller
         if(!$tipo_texto)
             return back()->with('error', "Nao encontrou");
 
-        return view('tipo_textos.show', compact('texto'));
+        return view('tipo_textos.show', compact('tipo_texto'));
     }
 
     public function create(){
-        $tipo_textos = TipoTexto::orderBy('tipo', 'asc');
 
-        return view('tipo_textos.create', compact('tipo_textos'));
+        return view('tipo_textos.create');
     }
 
     public function store(Request $request){
@@ -50,9 +49,7 @@ class TipoTextoController extends Controller
         if(!$tipo_texto)
             return back()->with('error', "Nao encontrou");
 
-        $tipo_textos = TipoTexto::orderBy('tipo', 'asc');
-
-        return view('tipo_textos.edit', compact('texto', 'tipo_textos'));
+        return view('tipo_textos.edit', compact('tipo_texto'));
     }
 
     public function update(Request $request, $id){
