@@ -19,14 +19,14 @@
     @endif
 </div>
 
-<div class="col-md-6">
+<div class="col-md-6 mt-2">
     {{ Form::text('video',  null, ['class'=>"form-control", 'placeholder'=>"Link Video"])}}
     @if ($errors->has('video'))
          <span class="text-danger">{{ $errors->first('video')}}</span>
     @endif
 </div>
 
-<div class="col-md-12">
+<div class="col-md-12 mt-2">
     {{ Form::submit('Salvar', ['class'=>"btn btn-primary"])}}
 
 </div>
