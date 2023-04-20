@@ -3,7 +3,7 @@
     <div class="row">
         @include('include.message')
         <div class="col-md-12">
-        <a href="/tipo-textos/create">Nova</a>
+        <a href="/tipo-textos/create">Novo</a>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                     <thead>

@@ -2,9 +2,8 @@
 @section('content')
 <div class="row">
 <div class="col-md-12">
-<b>Tipo de Texto:</b> {{ $texto->tipo_textos->tipo }}<br/>
-<b>Texto:</b> {{ $texto->texto }}<br/>
-<b>Vídeo:</b> {{ $texto->video }}<br/>
+<b>Tipo:</b> {{ $tipo_texto->tipo }}<br/>
+<b>Imagem:</b> {{ $tipo_texto->img }}<br/>
 </div>
 </div>
 @endsection
