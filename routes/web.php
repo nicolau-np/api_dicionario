@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TextoController;
-
+use App\Http\Controllers\TipoTextoController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,25 @@ use App\Http\Controllers\TextoController;
 |
 */
 
-Route::get('/', [TextoController::class, 'index']);
-Route::get('create', [TextoController::class, 'create']);
-Route::post('/', [TextoController::class, 'store']);
+Route::get('/', [HomeController::class, 'index']);
+
+Route::prefix('textos')->group(function(){
+    Route::get('create', [TextoController::class, 'create']);
+    Route::post('/', [TextoController::class, 'store']);
+    Route::get('edit/{id}', [TextoController::class, 'edit']);
+    Route::put('/{id}', [TextoController::class, 'update']);
+    Route::get('destroy/{id}', [TextoController::class, 'destroy']);
+    Route::get('/', [TextoController::class, 'index']);
+    Route::get('/{id}', [TextoController::class, 'show']);
+});
+
+Route::prefix('tipo-textos')->group(function(){
+    Route::get('create', [TipoTextoController::class, 'create']);
+    Route::post('/', [TipoTextoController::class, 'store']);
+    Route::get('edit/{id}', [TipoTextoController::class, 'edit']);
+    Route::put('/{id}', [TipoTextoController::class, 'update']);
+    Route::get('destroy/{id}', [TipoTextoController::class, 'destroy']);
+    Route::get('/', [TipoTextoController::class, 'index']);
+    Route::get('/{id}', [TipoTextoController::class, 'show']);
+});
+
