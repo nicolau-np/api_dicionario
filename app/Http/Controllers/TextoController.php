@@ -11,19 +11,19 @@ class TextoController extends Controller
     public function index(){
         $textos = Texto::paginate(10);
 
-        return view('index', compact('textos'));
+        return view('textos.index', compact('textos'));
     }
 
     public function show($id){
         $texto = Texto::find($id);
 
-        return view('show', compact('texto'));
+        return view('textos.show', compact('texto'));
     }
 
     public function create(){
         $tipo_textos = TipoTexto::orderBy('tipo', 'asc');
 
-        return view('create', compact('textos'));
+        return view('textos.create', compact('tipo_textos'));
     }
 
     public function store(Request $request){
@@ -31,6 +31,10 @@ $this->validate($request, [
     'id_tipo_texto'=>'required|integer|exists:tipo_textos,id',
     'texto'=>'required|string',
     'video'=>'required|string',
+],[],[
+    'id_tipo_texto'=>'Tipo Texto',
+    'texto'=>'Texto',
+    'video'=>'Video',
 ]);
 
 try{

@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             TipoTextoSeeder::class,
-            TextoSeeder::class,
+            #TextoSeeder::class,
         ]);
     }
 }

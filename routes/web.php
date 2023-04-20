@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TextoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [TextoController::class, 'index']);
-Route::get('create', [TextController::class, 'create']);
+Route::get('create', [TextoController::class, 'create']);
 Route::post('/', [TextoController::class, 'store']);
