@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [TextoController::class, 'index']);
+Route::get('create', [TextController::class, 'create']);
+Route::post('/', [TextoController::class, 'store']);

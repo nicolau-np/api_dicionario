@@ -69,7 +69,7 @@ class TextoController extends Controller
     }
 
     public function search($texto){
-        $texto = Texto::where('texto', $texto)->get();
+        $texto = Texto::where('texto', 'LIKE', "%{$texto}%")->first();
 
         return new TextoResource($texto);
     }

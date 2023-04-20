@@ -19,12 +19,12 @@ class CreateTextosTable extends Migration
             $table->text('texto');
             $table->text('video')->nullable();
             $table->text('img')->nullable();
-            $table->string('estado');
+            $table->string('estado')->default('on');
             $table->timestamps();
         });
 
         Schema::table('textos', function (Blueprint $table) {
-          $table->foreign('id_tipo_texto')->references('id')->on('textos')->onDelete('cascade');
+          $table->foreign('id_tipo_texto')->references('id')->on('textos')->onUpdate('cascade');
         });
     }
 

@@ -9,13 +9,13 @@ class TextoSeeder extends Seeder
 {
     static $textos = [
         [
-            'id_tipo_texto'=>1,
+            'id_tipo_texto'=>3,
             'texto'=>"Pão",
             'video'=>"https://youtu.be/B_-oV4l8ivw",
             'img'=>null,
              'estado'=>"on",
         ], [
-            'id_tipo_texto'=>1,
+            'id_tipo_texto'=>3,
             'texto'=>"Banana",
             'video'=>"https://www.youtube.com/watch?v=ktLYrQhwg6Q",
             'img'=>null,
