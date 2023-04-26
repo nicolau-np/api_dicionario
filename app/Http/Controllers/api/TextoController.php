@@ -85,4 +85,11 @@ class TextoController extends Controller
 
         return TextoResource::collection($textos);
     }
+
+    public function random(){
+
+        $texto = Texto::inRandomOrder()->first();
+
+        return new TextoResource($texto);
+    }
 }

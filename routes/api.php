@@ -22,11 +22,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('textos')->group(function(){
+    Route::get('random', [TextoController::class, 'random']);
     Route::get('search/{texto}', [TextoController::class, 'search']);
     Route::post('keyup', [TextoController::class, 'keyup']);
     Route::get('/', [TextoController::class, 'index']);
     Route::get('/{id}', [TextoController::class, 'show']);
     Route::get('category/{id_tipo_texto}', [TextoController::class, 'category']);
+
 });
 
 Route::prefix('tipo-textos')->group(function(){
