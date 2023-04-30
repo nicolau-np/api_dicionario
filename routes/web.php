@@ -16,13 +16,13 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 
 Route::prefix('user')->group(function(){
-    Route::get('login', [UserController::class, 'login'])->middleware('guest');
+    Route::get('login', [UserController::class, 'login'])->name('login')->middleware('guest');
     Route::post('login', [UserController::class, 'logar'])->middleware('guest');
-    Route::get('logout', [UserController::class, 'logout'])->middleware('auth');
+    Route::get('logout', [UserController::class, 'logout'])->name('logout')->middleware('auth');
 });
 
 Route::prefix('textos')->middleware('auth')->group(function(){
