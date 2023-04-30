@@ -8,7 +8,8 @@ class UserController extends Controller
 {
     public function login()
     {
-        return view('users.login');
+        $type = 'login';
+        return view('users.login', compact('type'));
     }
 
     public function logar(Request $request)

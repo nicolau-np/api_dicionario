@@ -9,21 +9,21 @@ class TipoTextoController extends Controller
 {
     public function index(){
         $tipo_textos = TipoTexto::paginate(10);
-
-        return view('tipo_textos.index', compact('tipo_textos'));
+        $type = 'home';
+        return view('tipo_textos.index', compact('tipo_textos', 'type'));
     }
 
     public function show($id){
         $tipo_texto = TipoTexto::find($id);
         if(!$tipo_texto)
             return back()->with('error', "Nao encontrou");
-
-        return view('tipo_textos.show', compact('tipo_texto'));
+            $type = 'home';
+        return view('tipo_textos.show', compact('tipo_texto', 'type'));
     }
 
     public function create(){
-
-        return view('tipo_textos.create');
+        $type = 'home';
+        return view('tipo_textos.create', compact('type'));
     }
 
     public function store(Request $request){
@@ -48,8 +48,8 @@ class TipoTextoController extends Controller
         $tipo_texto = TipoTexto::find($id);
         if(!$tipo_texto)
             return back()->with('error', "Nao encontrou");
-
-        return view('tipo_textos.edit', compact('tipo_texto'));
+            $type = 'home';
+        return view('tipo_textos.edit', compact('tipo_texto', 'type'));
     }
 
     public function update(Request $request, $id){

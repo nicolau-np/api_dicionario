@@ -20,12 +20,12 @@ Route::get('/', [HomeController::class, 'index']);
 
 
 Route::prefix('user')->group(function(){
-    Route::get('login', [UserController::class, 'login']);
-    Route::post('login', [UserController::class, 'logar']);
-    Route::get('logout', [UserController::class, 'logout']);
+    Route::get('login', [UserController::class, 'login'])->middleware('guest');
+    Route::post('login', [UserController::class, 'logar'])->middleware('guest');
+    Route::get('logout', [UserController::class, 'logout'])->middleware('auth');
 });
 
-Route::prefix('textos')->group(function(){
+Route::prefix('textos')->middleware('auth')->group(function(){
     Route::get('create', [TextoController::class, 'create']);
     Route::post('/', [TextoController::class, 'store']);
     Route::get('edit/{id}', [TextoController::class, 'edit']);
@@ -35,7 +35,7 @@ Route::prefix('textos')->group(function(){
     Route::get('/{id}', [TextoController::class, 'show']);
 });
 
-Route::prefix('tipo-textos')->group(function(){
+Route::prefix('tipo-textos')->middleware('auth')->group(function(){
     Route::get('create', [TipoTextoController::class, 'create']);
     Route::post('/', [TipoTextoController::class, 'store']);
     Route::get('edit/{id}', [TipoTextoController::class, 'edit']);

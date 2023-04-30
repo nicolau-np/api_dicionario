@@ -9,23 +9,24 @@ use App\Models\TipoTexto;
 class TextoController extends Controller
 {
     public function index(){
-        $textos = Texto::paginate(10);
 
-        return view('textos.index', compact('textos'));
+        $textos = Texto::paginate(10);
+        $type = 'home';
+        return view('textos.index', compact('textos', 'type'));
     }
 
     public function show($id){
         $texto = Texto::find($id);
         if(!$texto)
             return back()->with('error', "Nao encontrou");
-
-        return view('textos.show', compact('texto'));
+            $type = 'home';
+        return view('textos.show', compact('texto', 'type'));
     }
 
     public function create(){
         $tipo_textos = TipoTexto::orderBy('tipo', 'asc');
-
-        return view('textos.create', compact('tipo_textos'));
+        $type = 'home';
+        return view('textos.create', compact('tipo_textos', 'type'));
     }
 
     public function store(Request $request){
@@ -53,8 +54,8 @@ class TextoController extends Controller
             return back()->with('error', "Nao encontrou");
 
         $tipo_textos = TipoTexto::orderBy('tipo', 'asc');
-
-        return view('textos.edit', compact('texto', 'tipo_textos'));
+        $type = 'home';
+        return view('textos.edit', compact('texto', 'tipo_textos', 'type'));
     }
 
     public function update(Request $request, $id){
