@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TextoController;
 use App\Http\Controllers\TipoTextoController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,13 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+
+
+Route::prefix('user')->group(function(){
+    Route::get('login', [UserController::class, 'login']);
+    Route::post('login', [UserController::class, 'logar']);
+    Route::get('logout', [UserController::class, 'logout']);
+});
 
 Route::prefix('textos')->group(function(){
     Route::get('create', [TextoController::class, 'create']);
