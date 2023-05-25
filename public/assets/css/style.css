@@ -2,4 +2,10 @@
     margin-left: 30%;
     margin-right: 30%;
     margin-top: 10%;
+    padding: 3%;
+    border: 1px solid #333;
+}
+
+label{
+    font-weight: bold;
 }

@@ -21,7 +21,7 @@ class UserController extends Controller
         $this->validate(
             $request,
             [
-                'email' => 'required|email|exists:usuarios,email',
+                'email' => 'required|email|exists:users,email',
                 'password' => 'required|string|min:6',
             ],[],[
                 'email' => 'E-mail',
@@ -29,14 +29,8 @@ class UserController extends Controller
             ]
         );
 
-        $user = User::where(['email' => $request->email])->first();
-
-        if ($user->estado == "off") {
-            return back()->with(['error' => "Usuário bloqueado, sem permissão."]);
-        }
-
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect('/home');
+            return redirect()->route('home');
         } else {
             return back()->with(['error' => "Palavra passe incorrectas"]);
         }

@@ -34,6 +34,10 @@
                         <a class="nav-link" href="/textos">Textos</a>
                       </li>
 
+                      <li class="nav-item">
+                        <a class="nav-link" href="/user/logout">Terminar Sessão</a>
+                      </li>
+
                     </ul>
                     <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
