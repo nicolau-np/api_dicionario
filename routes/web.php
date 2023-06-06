@@ -5,6 +5,7 @@ use App\Http\Controllers\TextoController;
 use App\Http\Controllers\TipoTextoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,34 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/migrate', function () {
+
+    $router = Artisan::call('route:clear');
+    echo "router<br>";
+
+    $clearrouter = Artisan::call('route:clear');
+    echo "Route cleared<br>";
+
+    $clearcache = Artisan::call('cache:clear');
+    echo "Cache cleared<br>";
+
+    $clearview = Artisan::call('view:clear');
+    echo "View cleared<br>";
+
+    $clearconfig = Artisan::call('config:cache');
+    echo "Config cleared<br>";
+
+    $cleardebugbar = Artisan::call('optimize');
+    echo "Optimize cleared<br>";
+
+    $migrate = Artisan::call('migrate:fresh');
+    echo "migrate<br>";
+
+    $seeder = Artisan::call('db:seed');
+    echo "Seed<br>";
+
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
