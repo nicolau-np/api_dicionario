@@ -17,26 +17,12 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Route::get('/migrate', function () {
-
-    $router = Artisan::call('route:clear');
-    echo "router<br>";
-
-    $clearrouter = Artisan::call('route:clear');
-    echo "Route cleared<br>";
-
-    $clearcache = Artisan::call('cache:clear');
-    echo "Cache cleared<br>";
-
-    $clearview = Artisan::call('view:clear');
-    echo "View cleared<br>";
-
-    $clearconfig = Artisan::call('config:cache');
-    echo "Config cleared<br>";
-
+Route::get('/optimize', function () {
     $cleardebugbar = Artisan::call('optimize');
     echo "Optimize cleared<br>";
+});
 
+Route::get('/migrate', function(){
     $migrate = Artisan::call('migrate:fresh');
     echo "migrate<br>";
 
@@ -45,7 +31,7 @@ Route::get('/migrate', function () {
 
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::prefix('user')->group(function(){
@@ -54,7 +40,7 @@ Route::prefix('user')->group(function(){
     Route::get('logout', [UserController::class, 'logout'])->name('logout')->middleware('auth');
 });
 
-Route::prefix('textos')->middleware('auth')->group(function(){
+Route::prefix('textos')->group(function(){
     Route::get('create', [TextoController::class, 'create']);
     Route::post('/', [TextoController::class, 'store']);
     Route::get('edit/{id}', [TextoController::class, 'edit']);
@@ -64,7 +50,7 @@ Route::prefix('textos')->middleware('auth')->group(function(){
     Route::get('/{id}', [TextoController::class, 'show']);
 });
 
-Route::prefix('tipo-textos')->middleware('auth')->group(function(){
+Route::prefix('tipo-textos')->group(function(){
     Route::get('create', [TipoTextoController::class, 'create']);
     Route::post('/', [TipoTextoController::class, 'store']);
     Route::get('edit/{id}', [TipoTextoController::class, 'edit']);
